@@ -9,7 +9,6 @@ def index(request):
     context = {
         'latest_question_list': latest_question_list,
     }
-    print(request)
     return render(request, 'polls/index.html', context)
 
 def detail(request, question_id):
