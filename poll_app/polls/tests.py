@@ -28,3 +28,8 @@ class QuestionModelsTests(TestCase):
         recent_question = Question(pub_date=time)
 
         self.assertIs(recent_question.was_published_recently(), True)
+
+    def create_question(self, question_text, days):
+        time = timezone.now() + datetime.timedelta(days=days)
+        return Question.objects.create(
+            question_text=question_text, pub_date=time)
